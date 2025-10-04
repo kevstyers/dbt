@@ -1,12 +1,10 @@
 version: 2
 
 sources:
-    - name: jaffle_shop
-      description: This is a replica of the Postgres database used by our app
-      database: dbt-tutorial
-      schema: jaffle_shop
+    - name: nyc_taxi
+      description: public taxi data
+      database: bigquery-public-data
+      schema: new_york_taxi_trips
       tables:
-          - name: customers
-            description: One record per customer.
-          - name: orders
-            description: One record per order. Includes cancelled and deleted orders.
+          - name: tlc_green_trips_2014
+            description: All green taxi data for 2014 where the trip started in UTC 2014.
