@@ -48,3 +48,6 @@ models:
         description: Datafile timestamp year value
       - name: data_file_month
         description: Datafile timestamp month value
+        
+  - name: taxis_clean
+    description: cleaned

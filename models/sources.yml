@@ -8,3 +8,5 @@ sources:
       tables:
           - name: tlc_green_trips_2014
             description: All green taxi data for 2014 where the trip started in UTC 2014.
+          - name: taxi_zone_geom
+            description: All taxi geo data
