@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: green_taxis_2014
+  - name: taxis_ingest
     description: All green taxi data for 2014 where the trip started in UTC 2014
     columns:
       - name: vendor_id
@@ -29,17 +29,13 @@ models:
       - name: tolls_amount
         description: Total amount of all tolls paid in trip.
       - name: ehail_fee
-        description: 
       - name: airport_fee
-        description: 
       - name: total_amount
         description: The total amount charged to passengers. Does not include cash tips.
       - name: payment_type
         description: A numeric code signifying how the passenger paid for the trip. 1= Credit card 2= Cash 3= No charge 4= Dispute 5= Unknown 6= Voided trip
       - name: distance_between_service
-        description: 
       - name: time_between_service
-        description: 
       - name: trip_type
         description: A code indicating whether the trip was a street-hail or a dispatch that is automatically assigned based on the metered rate in use but can be altered by the driver. 1= Street-hail 2= Dispatch
       - name: imp_surcharge
