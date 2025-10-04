@@ -39,3 +39,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   nyc_taxis:
     +materialized: view
+
+seeds:
+  +schema: ref
