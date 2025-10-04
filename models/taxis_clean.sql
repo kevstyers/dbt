@@ -4,16 +4,8 @@ select
   , dropoff_datetime
   , TIMESTAMP_DIFF(cast(dropoff_datetime as timestamp), cast(pickup_datetime as timestamp), minute) as trip_duration_minutes
   , store_and_fwd_flag
-  , rate_code
-  , case
-      when rate_code = '1' then 'Standard Rate'
-      when rate_code = '2' then 'JFK'
-      when rate_code = '3' then 'Newark'
-      when rate_code = '4' then 'Nassau or Winchester'
-      when rate_code = '5' then 'Negotiated Rate'
-      when rate_code = '6' then 'Group Ride'
-    else NULL
-  end as rate_code_description
+  , sample.rate_code
+  , rc.description as rate_code_description
   , passenger_count
   , trip_distance
   , fare_amount
@@ -45,6 +37,9 @@ select
   , tzid_drop.borough as dropoff_borough
   , data_file_month
 FROM {{ ref('taxis_ingest') }} as sample
+LEFT JOIN 
+  {{ ref('rate_codes') }} as rc
+  ON sample.rate_code = cast(rc.code as string)
 LEFT JOIN 
   {{ source('nyc_taxi', 'taxi_zone_geom') }} as tzid_pick
   on sample.pickup_location_id = tzid_pick.zone_id
