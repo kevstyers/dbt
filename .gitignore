@@ -1,0 +1,14 @@
+# dbt build artifacts
+target/
+dbt_packages/
+logs/
+
+# Local secrets & env
+.secrets/
+.env
+*.env
+
+# OS cruft
+.DS_Store
+Thumbs.db
+*.log
